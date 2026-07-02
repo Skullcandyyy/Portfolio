@@ -51,10 +51,10 @@ function App() {
     let result;
     if (editingId) {
       result = await updateTask(editingId, formData);
-      if (result?.success) setNotification({ message: 'Task updated!', type: 'success' });
+      if (result?.success) setNotification({ message: 'Task updated successfully!', type: 'success' });
     } else {
       result = await addTask(formData);
-      if (result?.success) setNotification({ message: 'Task added!', type: 'success' });
+      if (result?.success) setNotification({ message: 'Task added successfully!', type: 'success' });
     }
     if (result?.success) {
       setFormData({ title: '', description: '', completed: false });
@@ -65,6 +65,7 @@ function App() {
   const handleEdit = (task) => {
     setFormData({ title: task.title, description: task.description || '', completed: task.completed });
     setEditingId(task._id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDelete = async (id) => {
@@ -91,9 +92,12 @@ function App() {
       />
 
       <div className="container">
-        <h1>Task Tracker</h1>
+        <div className="header">
+          <h1>Task Tracker</h1>
+          <p>Stay organized, get things done</p>
+        </div>
 
-        {error && <div className="error" onClick={() => setError('')}>{error}</div>}
+        {error && <div className="error" onClick={() => setError('')}>{error} &times;</div>}
 
         <TaskForm
           formData={formData}
@@ -106,6 +110,21 @@ function App() {
           }}
         />
 
+        <div className="stats-bar">
+          <div className="stat-card">
+            <div className="stat-number">{counts.all}</div>
+            <div className="stat-label">Total</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-number">{counts.active}</div>
+            <div className="stat-label">Active</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-number">{counts.completed}</div>
+            <div className="stat-label">Done</div>
+          </div>
+        </div>
+
         <div className="controls">
           <div className="filter-group">
             {['all', 'active', 'completed'].map((f) => (
@@ -114,7 +133,7 @@ function App() {
                 className={`filter-btn ${filter === f ? 'active' : ''}`}
                 onClick={() => setFilter(f)}
               >
-                {f.charAt(0).toUpperCase() + f.slice(1)} ({counts[f]})
+                {f.charAt(0).toUpperCase() + f.slice(1)}
               </button>
             ))}
           </div>
@@ -137,9 +156,17 @@ function App() {
         </div>
 
         <div className="task-list">
-          {loading && <p className="no-tasks">Loading tasks...</p>}
+          {loading && (
+            <div className="no-tasks">
+              <div className="no-tasks-icon">&#8987;</div>
+              Loading tasks...
+            </div>
+          )}
           {!loading && filteredTasks.length === 0 && (
-            <p className="no-tasks">No tasks found.</p>
+            <div className="no-tasks">
+              <div className="no-tasks-icon">{search || filter !== 'all' ? '🔍' : '📋'}</div>
+              {search ? 'No tasks match your search' : filter !== 'all' ? 'No tasks in this category' : 'No tasks yet. Add one above!'}
+            </div>
           )}
           {filteredTasks.map((task) => (
             <TaskItem
