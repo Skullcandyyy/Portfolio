@@ -100,9 +100,7 @@ function Constellation({ isLight }: { isLight: boolean }) {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={PARTICLE_COUNT}
-            array={positions}
-            itemSize={3}
+            args={[positions, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
@@ -118,9 +116,7 @@ function Constellation({ isLight }: { isLight: boolean }) {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={lineCount * 2}
-            array={linePositions}
-            itemSize={3}
+            args={[linePositions, 3]}
           />
         </bufferGeometry>
         <lineBasicMaterial
