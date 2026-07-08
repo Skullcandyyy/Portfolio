@@ -63,7 +63,7 @@ export default function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-2 lg:px-3 py-2 rounded-lg text-xs lg:text-sm font-medium transition-all whitespace-nowrap ${
                   activeSection === item.href.slice(1)
                     ? "text-primary bg-primary/10"
                     : "text-muted hover:text-foreground hover:bg-white/5"
@@ -72,7 +72,7 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
-            <div className="w-px h-5 bg-border mx-3" />
+            <div className="w-px h-5 bg-border mx-2 lg:mx-3" />
             <RecruiterModeToggle />
             <ThemeToggle />
           </div>
