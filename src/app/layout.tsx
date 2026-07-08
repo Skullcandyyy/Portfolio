@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rohitkumar.dev"),
   title: "Rohit Kumar | AI & Full Stack Developer",
   description:
     "AI and Full Stack Developer specializing in LangChain, RAG architectures, and the MERN stack. Building intelligent applications with LLMs and vector databases.",
