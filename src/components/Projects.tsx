@@ -75,9 +75,6 @@ export default function Projects() {
               : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           }`}>
             {filtered.map((project, pi) => {
-              const isFeatured = pi === 0 && filtered.length > 1;
-              const isTall = pi === 1 && filtered.length > 2;
-
               return (
                 <motion.div
                   key={pi}
@@ -86,9 +83,7 @@ export default function Projects() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: pi * 0.08, duration: 0.5 }}
                   whileHover={{ y: -4 }}
-                  className={`dev-card p-6 flex flex-col group cursor-default ${
-                    isFeatured ? "md:col-span-2 lg:row-span-2" : ""
-                  } ${isTall ? "lg:row-span-2" : ""}`}
+                  className="dev-card p-6 flex flex-col group cursor-default"
                 >
                   {/* Header */}
                   <div className="flex items-center justify-between mb-4">
@@ -99,24 +94,22 @@ export default function Projects() {
                   </div>
 
                   {/* Title */}
-                  <h3 className={`font-semibold text-foreground mb-3 group-hover:text-primary transition-colors ${
-                    isFeatured ? "text-xl sm:text-2xl tracking-tight" : "text-base"
-                  }`}>
+                  <h3 className="font-semibold text-foreground mb-3 group-hover:text-primary transition-colors text-base">
                     {project.title}
                   </h3>
 
                   {/* Tech tags */}
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tech.map((t) => (
-                      <span key={t} className={`dev-tag ${isFeatured ? "text-xs" : "text-[10px]"}`}>{t}</span>
+                      <span key={t} className="dev-tag text-[10px]">{t}</span>
                     ))}
                   </div>
 
                   {/* Points */}
                   <ul className="space-y-2 flex-1 mb-4">
-                    {(recruiterMode ? project.points : project.points.slice(0, isFeatured ? 4 : 3)).map((point, i) => (
+                    {(recruiterMode ? project.points : project.points.slice(0, 3)).map((point, i) => (
                       <li key={i} className="text-xs sm:text-sm text-foreground-secondary leading-relaxed pl-4 relative before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary/40 before:rounded-full">
-                        {isFeatured ? point : (point.length > 75 ? point.slice(0, 75) + "..." : point)}
+                        {point.length > 75 ? point.slice(0, 75) + "..." : point}
                       </li>
                     ))}
                   </ul>
