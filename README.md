@@ -1,106 +1,36 @@
-# Task Tracker Application
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A full-stack Task Tracker application built with the MERN stack (MongoDB, Express.js, React.js, Node.js).
+## Getting Started
 
-## Live Demo
+First, run the development server:
 
-- **Frontend**: https://task-tracker14.netlify.app
-- **Backend API**: https://task-tracker-7bxp.onrender.com
-
-## Features
-
-### Mandatory
-- Create, Read, Update, Delete (CRUD) tasks
-- Form validation (both frontend & backend)
-- RESTful APIs
-- MongoDB Atlas integration
-- Responsive UI (mobile-friendly)
-- Dynamic updates without page refresh
-
-### Bonus
-- Filter tasks: All / Active / Completed
-- Sort tasks: Newest, Oldest, A-Z, Z-A
-- Search tasks by title
-- Toast notifications for add/update/delete
-- Reusable components (TaskForm, TaskItem, Notification)
-- Custom hook for data management (useTasks)
-- Statistics bar (total, active, completed counts)
-- Modern UI with animations and gradients
-
-## Project Structure
-
-```
-task-tracker/
-├── backend/
-│   ├── server.js
-│   ├── package.json
-│   └── .env
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── TaskForm.js
-│   │   │   ├── TaskItem.js
-│   │   │   └── Notification.js
-│   │   ├── hooks/
-│   │   │   └── useTasks.js
-│   │   ├── App.js
-│   │   ├── App.css
-│   │   └── index.js
-│   ├── package.json
-│   └── .env
-└── netlify.toml
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Setup Instructions
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Backend Setup
-1. Navigate to the backend directory:
-   ```
-   cd backend
-   ```
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Create a `.env` file with:
-   ```
-   PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/tasktracker
-   ```
-4. Start the server:
-   ```
-   npm run dev
-   ```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Frontend Setup
-1. Navigate to the frontend directory:
-   ```
-   cd frontend
-   ```
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Start the React app:
-   ```
-   npm start
-   ```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## API Endpoints
+## Learn More
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/tasks` | Get all tasks |
-| GET | `/api/tasks/:id` | Get a specific task |
-| POST | `/api/tasks` | Create a new task |
-| PUT | `/api/tasks/:id` | Update a task |
-| DELETE | `/api/tasks/:id` | Delete a task |
+To learn more about Next.js, take a look at the following resources:
 
-## Tech Stack
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- **Frontend**: React.js, Axios
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB Atlas
-- **Deployment**: Render (backend), Netlify (frontend)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

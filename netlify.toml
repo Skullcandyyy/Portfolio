@@ -1,6 +1,0 @@
-[build]
-  command = "cd frontend && npm install && npm run build"
-  publish = "frontend/build"
-
-[build.environment]
-  REACT_APP_API_URL = "https://task-tracker-7bxp.onrender.com/api/tasks"
