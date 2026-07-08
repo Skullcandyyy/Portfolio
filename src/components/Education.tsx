@@ -57,7 +57,6 @@ export default function Education() {
                 >
                   <h4 className="text-sm font-medium text-foreground">{cert.title}</h4>
                   <div className="flex items-center gap-2 mt-1 flex-wrap">
-                    <span className="text-xs text-foreground-secondary">{cert.provider}</span>
                     {"year" in cert && (
                       <>
                         <span className="text-muted">·</span>
